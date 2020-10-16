@@ -26,7 +26,7 @@ class RoundedLoadingButton extends StatefulWidget {
   /// Whether to trigger the animation on the tap event
   final bool animateOnTap;
 
-  /// The color of the static icons 
+  /// The color of the static icons
   final Color valueColor;
 
   /// The curve of the shrink animation
@@ -146,7 +146,9 @@ class RoundedLoadingButtonState extends State<RoundedLoadingButton>
         child: Center(
             child: _state.value == LoadingState.error
                 ? _cross
-                : _state.value == LoadingState.success ? _check : _btn));
+                : _state.value == LoadingState.success
+                    ? _check
+                    : _btn));
   }
 
   @override
@@ -205,11 +207,7 @@ class RoundedLoadingButtonState extends State<RoundedLoadingButton>
   }
 
   _btnPressed() async {
-    if (widget.animateOnTap) {
-      _start();
-    } else {
-      widget.onPressed();
-    }
+    widget.onPressed();
   }
 
   _start() {
