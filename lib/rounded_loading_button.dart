@@ -23,9 +23,6 @@ class RoundedLoadingButton extends StatefulWidget {
   /// The horiztonal extent of the button.
   final double width;
 
-  /// Whether to trigger the animation on the tap event
-  final bool animateOnTap;
-
   /// The color of the static icons
   final Color valueColor;
 
@@ -54,7 +51,6 @@ class RoundedLoadingButton extends StatefulWidget {
       this.color,
       this.height = 50,
       this.width = 300,
-      this.animateOnTap = true,
       this.valueColor = Colors.white,
       this.borderRadius = 35,
       this.elevation = 2,
@@ -177,12 +173,6 @@ class RoundedLoadingButtonState extends State<RoundedLoadingButton>
 
     _squeezeAnimation.addListener(() {
       setState(() {});
-    });
-
-    _squeezeAnimation.addStatusListener((state) {
-      if (state == AnimationStatus.completed && widget.animateOnTap) {
-        widget.onPressed();
-      }
     });
 
     _borderAnimation = BorderRadiusTween(
